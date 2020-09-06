@@ -3,7 +3,7 @@
   "Description" : "Sets up a WebServer instance on AML2 in US-West 1, opens ingress security groups as well as configuring the webserver",
 
   "Resources" : {
-     "WebPageTestServerInstance" : {
+     "WebServerInstance" : {
        "Type" : "AWS::EC2::Instance",
        "Properties"       : {
         "ImageId"        : "ami-0e65ed16c9bf1abc7",
