@@ -10,16 +10,18 @@
 		"InstanceType"   : "t3a.small",
 	 	"SecurityGroups" : [{ "Ref" : "HTTPHTTPSInboundFromAnywhere" }],
 	 	"UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
-	   "#!/bin/bash -xe\n"
+	   "#!/bin/bash -xe\n",
        "exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1\n",
-	   "/usr/bin/sudo yum update -y\n",
-	   "/usr/bin/sudo yum install -y httpd\n",
-	   "/usr/bin/sudo yum -y install yum-cron\n",
-	   "/usr/bin/sudo systemctl start httpd\n",
-	   "/usr/bin/sudo systemctl enable httpd\n",
-	   "/usr/bin/sudo systemctl enable yum-cron.service\n",
-	   "/usr/bin/sudo systemctl start yum-cron.service\n",
-	   "echo '<h1>Hello AWS!</h1>\n<p></p>\n<a href=\"https://github.com/gregcope/webserver/blob/master/webserver.json</>\">Github source</a>\n' >> /var/www/html/index.html\n"
+	   "sudo yum update -y\n",
+	   "sudo yum install -y httpd\n",
+	   "sudo yum install -y mod_ssl\n",
+	   "sudo yum install -y yum-cron\n",
+	   "sudo cd /etc/pki/tls/certs && sudo ./make-dummy-cert localhost.crt\n",
+	   "sudo systemctl start httpd\n",
+	   "sudo systemctl enable httpd\n",
+	   "sudo systemctl enable yum-cron.service\n",
+	   "sudo systemctl start yum-cron.service\n",
+	   "sudo echo \"<html><h1>Hello AWS!</h1>\n<p></p>\n<a href=\"https://github.com/gregcope/webserver/blob/master/webserver.json</>\">Github source</a>\n</html>/n\" > /var/www/html/index.html\n"
 	   ]]}
 	 },
 	 "Tags" : [
