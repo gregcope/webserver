@@ -18,3 +18,4 @@ Cloud foromation templated to create an AWS Webserver
 5. User serverless so that it scales and saves money
 6. Cloudformation creates AMI at end (using Lambda)
 7. Run updates on laptop beforehand and not lose your AWS MFA POTP or disconnect you landline
+8. Use a nano instance type to save costs

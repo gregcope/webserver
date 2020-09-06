@@ -10,7 +10,8 @@
 		"InstanceType"   : "t3a.small",
 	 	"SecurityGroups" : [{ "Ref" : "HTTPHTTPSInboundFromAnywhere" }],
 	 	"UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
-	   "#!/bin/bash -v\n",
+	   "#!/bin/bash -xe\n"
+       "exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1\n",
 	   "/usr/bin/sudo yum update -y\n",
 	   "/usr/bin/sudo yum install -y httpd\n",
 	   "/usr/bin/sudo yum -y install yum-cron\n",
@@ -18,7 +19,7 @@
 	   "/usr/bin/sudo systemctl enable httpd\n",
 	   "/usr/bin/sudo systemctl enable yum-cron.service\n",
 	   "/usr/bin/sudo systemctl start yum-cron.service\n",
-	   "echo '<h1>Hello AWS!</h1>\n<p></p>\n<a href=\"https://github.com/gregcope/webserver/blob/master/webserver.json</>\">Github source</a>\n' >> /var/www/html\n"
+	   "echo '<h1>Hello AWS!</h1>\n<p></p>\n<a href=\"https://github.com/gregcope/webserver/blob/master/webserver.json</>\">Github source</a>\n' >> /var/www/html/index.html\n"
 	   ]]}
 	 },
 	 "Tags" : [
