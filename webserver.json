@@ -16,13 +16,12 @@
 	   "sudo yum install -y httpd\n",
 	   "sudo yum install -y mod_ssl\n",
 	   "sudo yum install -y yum-cron\n",
-	   "sudo /etc/pki/tls/certs/make-dummy-cert /etc/pki/tls/certs/localhost.crt\n",
 	   "sudo systemctl start httpd\n",
 	   "sudo systemctl enable httpd\n",
 	   "sudo systemctl enable yum-cron.service\n",
 	   "sudo systemctl start yum-cron.service\n",
 	   "cd /var/www/html\n",
-	   "sudo wget https://github.com/gregcope/webserver/blob/master/index.html\n"
+	   "sudo wget https://raw.githubusercontent.com/gregcope/webserver/master/index.html\n"
 	   ]]}
 	 },
 	 "Tags" : [
