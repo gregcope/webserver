@@ -46,7 +46,7 @@
 	   "/usr/bin/sudo systemctl enable httpd\n",
 	   "/usr/bin/sudo systemctl enable yum-cron.service\n",
 	   "/usr/bin/sudo systemctl start yum-cron.service\n",
-	   "echo 'Hello World AWS' >> /var/www/html\n"
+	   "echo 'Hello AWS!' >> /var/www/html\n"
 	   ]]}
 	 },
 	 "Tags" : [
