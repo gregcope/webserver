@@ -8,7 +8,6 @@
        "Properties"       : {
         "ImageId"        : "ami-0e65ed16c9bf1abc7",
 		"InstanceType"   : "t3a.small",
-		"KeyName"        : { "Ref" : "KeyName" },
 	 	"SecurityGroups" : [{ "Ref" : "HTTPHTTPSInboundFromAnywhere" }],
 	 	"UserData"       : { "Fn::Base64" : { "Fn::Join" : ["", [
 	   "#!/bin/bash -v\n",
