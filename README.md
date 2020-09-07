@@ -19,3 +19,4 @@ Cloud foromation templated to create an AWS Webserver
 6. Cloudformation creates AMI at end (using Lambda)
 7. Run updates on laptop beforehand and not lose your AWS MFA POTP or disconnect you landline
 8. Use a nano instance type to save costs
+9. DNS hostname/domain to match the TLS cert
